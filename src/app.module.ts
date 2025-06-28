@@ -9,6 +9,7 @@ import { AuthModule } from "./modules/auth/auth.module";
 import { CommonProviderModule } from "./modules/common-provider/common-provider.module";
 import { DataPartitionModule } from "./modules/data-partition/data-partition.module";
 import { DataProcessModule } from "./modules/data-process/data-process.module";
+import { EventAccountModule } from "./modules/event-account/event-account.module";
 import { FileModule } from "./modules/file/file.module";
 import { ImportSessionModule } from "./modules/import-session/import-session.module";
 import { NotificationModule } from "./modules/notification/notification.module";
@@ -23,6 +24,7 @@ import { UserModule } from "./modules/user/user.module";
         ...DefaultModules,
         AuthModule,
         UserModule,
+        EventAccountModule,
         OneSignalModule,
         NotificationModule,
         TopicModule,

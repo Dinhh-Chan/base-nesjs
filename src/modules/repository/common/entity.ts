@@ -1,5 +1,6 @@
 export const AUTH = "Auth";
 export const USER = "User";
+export const EVENT_ACCOUNT = "EventAccount";
 export const ONE_SIGNAL_USER = "OneSignalUser";
 export const NOTIFICATION = "Notification";
 export const TOPIC = "Topic";
