@@ -1,12 +1,12 @@
-import { IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsString, IsOptional, MinLength } from "class-validator";
 
 export class CreateEventAccountDto {
     @IsString()
-    @IsNotEmpty()
+    @MinLength(3)
     username: string;
 
     @IsString()
-    @IsNotEmpty()
+    @MinLength(6)
     password: string;
 
     @IsString()

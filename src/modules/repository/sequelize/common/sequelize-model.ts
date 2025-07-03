@@ -1,3 +1,4 @@
+import { EventAccount } from "@module/event-account/entities/event-account.entity";
 import { HamSinhMaModel } from "@module/quy-tac-ma/models/ham-sinh-ma.model";
 import { QuyTacMaModel } from "@module/quy-tac-ma/models/quy-tac-ma.model";
 import { Model, ModelCtor } from "sequelize-typescript";
@@ -17,6 +18,7 @@ import { UserModel } from "../model/user.model";
 export const SequelizeModel: ModelCtor<Model>[] = [
     UserModel,
     AuthModel,
+    EventAccount,
     FileModel,
     NotificationModel,
     OneSignalUserModel,

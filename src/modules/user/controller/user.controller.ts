@@ -36,6 +36,7 @@ export class UserController extends BaseControllerFactory<User>(
         dataPartition: {
             enable: true,
         },
+        authorize: false,
     },
 ) {
     constructor(private readonly userService: UserService) {

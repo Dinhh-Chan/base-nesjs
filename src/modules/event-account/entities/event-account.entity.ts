@@ -1,11 +1,12 @@
 import { StrObjectId } from "@common/constant";
+import { BaseEntity } from "@common/interface/base-entity.interface";
 import { Column, DataType, Model, Table } from "sequelize-typescript";
 
 @Table({
     tableName: "event_accounts",
     timestamps: true,
 })
-export class EventAccount extends Model<EventAccount> {
+export class EventAccount extends Model<EventAccount> implements BaseEntity {
     @StrObjectId()
     _id: string;
 

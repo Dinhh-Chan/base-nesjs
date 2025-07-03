@@ -1,4 +1,5 @@
-import { fileTypeFromBuffer } from "file-type";
+// import { fileTypeFromBuffer } from "file-type";
+import fileType from "file-type";
 import sharp from "sharp";
 
 export enum FileStorageType {
@@ -75,13 +76,13 @@ export type FileErrorCode =
     | "error-file-not-found";
 
 export const compressFile = async (buffer: Buffer) => {
-    const fileType = await fileTypeFromBuffer(buffer);
+    const fileTypeResult = await fileType.fromBuffer(buffer);
     const quality = Math.min(
         100,
         Math.max(Math.floor(((512 * 1024) / buffer.byteLength) * 100), 16),
     );
     if (quality < 100) {
-        switch (fileType?.mime) {
+        switch (fileTypeResult?.mime) {
             case "image/png":
             case "image/jpeg": {
                 buffer = await sharp(buffer)
@@ -99,5 +100,5 @@ export const compressFile = async (buffer: Buffer) => {
             }
         }
     }
-    return { buffer, fileType };
+    return { buffer, fileType: fileTypeResult };
 };
