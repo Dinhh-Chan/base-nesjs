@@ -20,11 +20,10 @@ import { EventAccount } from "../entities/event-account.entity";
 
 @ApiTags("Event Accounts")
 @Controller("event-accounts")
-@Authorization()
 export class EventAccountController {
     constructor(private readonly eventAccountService: EventAccountService) {}
 
-    @Post()
+    @Post("/accounts")
     @ApiOperation({ summary: "Tạo tài khoản sự kiện mới" })
     @ApiResponse({ status: 201, description: "Tài khoản được tạo thành công" })
     @ApiResponse({ status: 400, description: "Dữ liệu không hợp lệ" })
@@ -37,13 +36,11 @@ export class EventAccountController {
         );
     }
 
-    @Get()
+    @Get("/accounts")
     @ApiOperation({ summary: "Lấy danh sách tài khoản sự kiện" })
     @ApiResponse({ status: 200, description: "Danh sách tài khoản" })
     async findAll(@ReqUser() user: User, @Query() query: EventAccountQueryDto) {
         const conditions: any = {};
-        if (query.username) conditions.username = query.username;
-        if (query.device_id) conditions.device_id = query.device_id;
 
         const commonQuery: CommonQueryDto<EventAccount> = {
             filters: [],
@@ -102,7 +99,7 @@ export class EventAccountController {
         return this.eventAccountService.deleteById(user, id);
     }
 
-    @Post("validate-password")
+    @Post("/login")
     @ApiOperation({ summary: "Xác thực mật khẩu" })
     @ApiResponse({ status: 200, description: "Xác thực thành công" })
     @ApiResponse({ status: 401, description: "Xác thực thất bại" })
