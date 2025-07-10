@@ -28,7 +28,7 @@ export class WebSocketGatewayService
 
     constructor(private readonly connectionManager: ConnectionManagerService) {}
 
-    async handleConnection(client: Socket, ...args: any[]) {
+    async handleConnection(client: Socket) {
         this.logger.log(`Client connected: ${client.id}`);
 
         // Gửi thông báo kết nối thành công
