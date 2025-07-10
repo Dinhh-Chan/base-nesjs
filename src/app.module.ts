@@ -20,6 +20,8 @@ import { TopicModule } from "./modules/topic/topic.module";
 import { UserModule } from "./modules/user/user.module";
 import { EventModule } from "./modules/event/event.module";
 import { EventLogModule } from "./modules/event-log/event-log.module";
+import { WebSocketModule } from "./modules/websocket/websocket.module";
+
 @Module({
     imports: [
         ...DefaultModules,
@@ -42,6 +44,7 @@ import { EventLogModule } from "./modules/event-log/event-log.module";
         CommonProviderModule,
         EventModule,
         EventLogModule,
+        WebSocketModule,
     ],
     providers: [...DefaultProviders],
     controllers: [AppController],
